@@ -8,7 +8,7 @@ jobs:
       - name: echo
         run: echo "Lets run pipeline with dockerfile"
       - name: check out
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
       - name: Run shell scripts to build and unit test
         run: |
           chmod +x ./ci/build-app.sh && ./ci/build-app.sh
