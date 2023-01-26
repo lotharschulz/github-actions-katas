@@ -1,4 +1,4 @@
-name: github actions
+name: github actions CI
 on: push
 jobs:
   my-job:
@@ -8,7 +8,7 @@ jobs:
       - name: Echo step
         run: echo "Lets run pipeline with dockerfile"
       - uses: actions/checkout@v3
-      - name: Run build-app shell script file
+      - name: Run shell scripts to build and unit test
         run: |
           chmod +x ./ci/build-app.sh
           ./ci/build-app.sh
