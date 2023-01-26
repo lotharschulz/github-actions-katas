@@ -1,4 +1,4 @@
-name: hello-world
+name: github actions
 on: push
 jobs:
   my-job:
@@ -10,5 +10,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: Run build-app shell script file
         run: |
-          chmod +x ./ci/build-app.sh ./ci/build-app.sh
+          chmod +x ./ci/build-app.sh
+          ./ci/build-app.sh
+          chmod +x ./ci/unit-test-app.sh
+          ./ci/build-app.sh
         shell: bash
