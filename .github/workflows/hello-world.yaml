@@ -21,7 +21,11 @@ jobs:
     name: build
     runs-on: ubuntu-latest
     needs: [Clone]
-    container: gradle:6-jdk11
+    strategy:
+      matrix:
+        container: ["gradle:6-jdk8", "gradle:6-jdk11", "gradle:6-jdk17"]
+    container:
+      image: ${{ matrix.container }}   
     steps:
       - name: Download code
         uses: actions/download-artifact@v3
