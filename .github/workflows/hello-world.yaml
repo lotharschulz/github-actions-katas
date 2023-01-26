@@ -61,7 +61,7 @@ jobs:
     - name: push docker
       run: chmod +x ci/push-docker.sh && ci/push-docker.sh
 
-  Compoenent-test:
+  Component-test:
     name: build & push docker image
     runs-on: ubuntu-latest
     needs: [Build]
