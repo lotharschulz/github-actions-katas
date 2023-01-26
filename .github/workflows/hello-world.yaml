@@ -5,13 +5,12 @@ jobs:
     runs-on: ubuntu-latest
     container: gradle:6-jdk11
     steps:
-      - name: Echo step
+      - name: echo
         run: echo "Lets run pipeline with dockerfile"
+      - name: check out
       - uses: actions/checkout@v3
       - name: Run shell scripts to build and unit test
         run: |
-          chmod +x ./ci/build-app.sh
-          ./ci/build-app.sh
-          chmod +x ./ci/unit-test-app.sh
-          ./ci/build-app.sh
+          chmod +x ./ci/build-app.sh && ./ci/build-app.sh
+          chmod +x ./ci/unit-test-app.sh && ./ci/unit-test-app.sh
         shell: bash
