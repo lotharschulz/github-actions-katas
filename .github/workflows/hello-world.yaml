@@ -1,7 +1,7 @@
 name: github actions CI
 on: push
 jobs:
-  clone
+  Clone
     name: clone repo
     runs-on: ubuntu-latest
     steps:
@@ -13,10 +13,10 @@ jobs:
           name: code
           path: .
 
-  build
+  Build
     name: build
     runs-on: ubuntu-latest
-    needs: [clone]
+    needs: [Clone]
     steps:
       - name: Download code
         uses: actions/download-artifact@v3
@@ -39,10 +39,10 @@ jobs:
           name: code
           path: .
 
-  docker-image:
+  Docker-image:
     name: build docker image
     runs-on: ubuntu-latest
-    needs: [build]
+    needs: [Build]
     permissions:
       packages: write
     steps:
