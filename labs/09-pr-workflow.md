@@ -90,7 +90,7 @@ on:
 
 Looking at your pull requests, you should see that the pipeline is triggered for each of them, and that only if the tests are passing that you can merge the PR.
 
-![PR with passing tests](../img/actions-checks.png)]
+![PR with passing tests](../img/actions-checks.png)
 
 ## What about the rest?
 
