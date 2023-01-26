@@ -24,7 +24,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        container: ["gradle:6-jdk8", "gradle:6-jdk11", "gradle:6-jdk17"]
+        container: ["gradle:6-jdk8", "gradle:6-jdk11"] # , "gradle:6-jdk17" does not work
     container:
       image: ${{ matrix.container }}   
     steps:
