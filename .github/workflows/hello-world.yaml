@@ -2,6 +2,7 @@ name: github actions CI
 on: push
 jobs:
   clone
+    name: clone repo
     runs-on: ubuntu-latest
     steps:
       - name: Check out
@@ -13,6 +14,7 @@ jobs:
           path: .
 
   build
+    name: build
     runs-on: ubuntu-latest
     needs: [clone]
     steps:
@@ -38,6 +40,7 @@ jobs:
           path: .
 
   docker-image:
+    name: build docker image
     runs-on: ubuntu-latest
     needs: [build]
     permissions:
