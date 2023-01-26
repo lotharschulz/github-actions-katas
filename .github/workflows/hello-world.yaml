@@ -1,19 +1,22 @@
 name: github actions CI
 on: push
 jobs:
-  my-job:
+  github-actionskatas-job:
     runs-on: ubuntu-latest
     container: gradle:6-jdk11
     steps:
-      - name: echo
-        run: echo "Lets run pipeline with dockerfile"
-      - name: check out
+      - name: Check out
         uses: actions/checkout@v3
-      - name: build
+      - name: Build
         run: |
           chmod +x ./ci/build-app.sh && ./ci/build-app.sh
         shell: bash
-      - name: test
+      - name: Test
         run: |
           chmod +x ./ci/unit-test-app.sh && ./ci/unit-test-app.sh
         shell: bash
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: code
+          path: .
