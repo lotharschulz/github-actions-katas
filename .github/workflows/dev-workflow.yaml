@@ -1,5 +1,8 @@
 name: github actions CI
-on: push
+on:
+  push:
+    branches:
+      - "dev/**"
 env: # Set the secret as an input
   docker_username: ${{ github.actor }}
   docker_password: ${{ secrets.GITHUB_TOKEN }}
