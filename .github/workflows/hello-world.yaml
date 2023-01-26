@@ -5,7 +5,7 @@ env: # Set the secret as an input
   docker_password: ${{ secrets.GITHUB_TOKEN }}
   GIT_COMMIT: ${{ github.sha }}
 jobs:
-  Clone
+  Clone:
     name: clone repo
     runs-on: ubuntu-latest
     steps:
