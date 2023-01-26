@@ -29,4 +29,33 @@ jobs:
           path: .
       - name: Check out
         uses: actions/checkout@v3
+      - name: Build
+        run: |
+          chmod +x ./ci/build-app.sh && ./ci/build-app.sh
+        shell: bash
+      - name: Test
+        run: |
+          chmod +x ./ci/unit-test-app.sh && ./ci/unit-test-app.sh
+        shell: bash
+      - name: Upload code
+        uses: actions/upload-artifact@v3
+        with:
+          name: code
+          path: .
 
+  Docker-image:
+    name: build docker image
+    runs-on: ubuntu-latest
+    needs: [Build]
+    permissions:
+      packages: write
+    steps:
+    - name: Download code
+      uses: actions/download-artifact@v3
+      with:
+        name: code
+        path: .
+    - name: build docker
+      run: chmod +x ci/build-docker.sh && ci/build-docker.sh
+    - name: push docker
+      run: chmod +x ci/push-docker.sh && ci/push-docker.sh
